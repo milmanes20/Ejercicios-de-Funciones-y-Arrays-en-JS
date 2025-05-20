@@ -1,0 +1,26 @@
+{
+  "name": "ejercicios-de-funciones-y-arrays-en-js",
+  "version": "1.0.0",
+  "description": "En esta lección cubriremos:",
+  "main": "homework.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/milmanes20/Ejercicios-de-Funciones-y-Arrays-en-JS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/milmanes20/Ejercicios-de-Funciones-y-Arrays-en-JS/issues"
+  },
+  "homepage": "https://github.com/milmanes20/Ejercicios-de-Funciones-y-Arrays-en-JS#readme",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
