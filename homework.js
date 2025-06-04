@@ -68,11 +68,7 @@ function agregarNumeros(numeros) {
   // "array" debe ser una matriz de enteros (int/integers)
   // Suma todos los enteros y devuelve el valor
   // Tu código:
-  let suma = 0;
-  for (let i = 0; i < numeros.length; i++) {
-    suma += numeros[i];
-  }
-  return suma;
+  return numeros.reduce((suma, numero) => suma + numero, 0);// Utiliza reduce para sumar todos los números en el array. Es una funcion propia de array
 
 }
 
@@ -88,13 +84,7 @@ function numeroMasGrande(numeros) {
   // "numeros" debe ser una matriz de enteros (int/integers)
   // Devuelve el número más grande
   // Tu código:
-  let maximo = numeros[0];
-  for (let i = 1; i < numeros.length; i++) {
-    if (numeros[i] > maximo) {
-      maximo = numeros[i];
-    }
-  }
-  return maximo;
+  return Math.max(...numeros);
 }
 
 function multiplicarArgumentos() {
