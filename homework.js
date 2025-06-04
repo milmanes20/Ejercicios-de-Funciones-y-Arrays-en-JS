@@ -26,6 +26,7 @@ function incrementarPorUno(array) {
   for (let i = 0; i < array.length; i++) {
     array[i] += 1;
   }
+  return array;
 }
 
 function agregarItemAlFinalDelArray(array, elemento) {
@@ -41,8 +42,9 @@ function agregarItemAlComienzoDelArray(array, elemento) {
   // y devuelve el array
   // Pista: usa el método `.unshift`
   // Tu código:
-  let devuelve=array.unshift(elemento);
-  return devuelve;
+  array.unshift(elemento);
+  return array;
+
 }
 
 function dePalabrasAFrase(palabras) {
@@ -216,6 +218,8 @@ function actualizarPassword(usuario, nuevaPassword) {
   // Reemplaza la contraseña existente en el objeto "usuario" con el valor de "nuevagPassword"
   // Devuelve el objeto
   // Tu código:
+  usuario.password = nuevaPassword;
+  return usuario;
 }
 
 function agregarAmigo(usuario, nuevoAmigo) {
@@ -223,6 +227,8 @@ function agregarAmigo(usuario, nuevoAmigo) {
   // Agrega "nuevoAmigo" al final de ese array
   // Devuelve el objeto "usuario"
   // // Tu código:
+  usuario.amigos.push(nuevoAmigo);
+  return usuario;
 }
 
 function pasarUsuarioAPremium(usuarios) {
@@ -231,6 +237,10 @@ function pasarUsuarioAPremium(usuarios) {
   // Define cada propiedad "esPremium" de cada objeto como "true"
   // Devuelve el array de usuarios
   // Tu código:
+  for (let i = 0; i < usuarios.length; i++) {
+    usuarios[i].esPremium = true; // Establece la propiedad esPremium a true
+  }
+  return usuarios;
 }
 
 function sumarLikesDeUsuario(usuario) {
@@ -240,6 +250,8 @@ function sumarLikesDeUsuario(usuario) {
   // Suma todos los likes de todos los objetos "post"
   // Devuelve la suma
   // Tu código:
+  return usuario.posts.reduce((acumulador, post) => acumulador + post.likes, 0);
+
 }
 
 function agregarMetodoCalculoDescuento(producto) {
@@ -252,29 +264,41 @@ function agregarMetodoCalculoDescuento(producto) {
   // producto.porcentajeDeDescuento -> 0.2 (o simplemente ".2")
   // producto.calcularPrecioDescuento() -> 20 - (20 * 0.2)
   // Tu código:
+  producto.calcularPrecioDescuento = function() {
+    const descuento = this.precio * this.porcentajeDeDescuento;
+    return this.precio - descuento;
+  };
+  return producto;
 }
 
 // Do not change any of the function names
 
 function invocarCallback(cb) {
   // Invoca al callback `cb`
+  cb();
+
 }
 
 function sumarArray(numeros, cb) {
   // Suma todos los números enteros (int/integers) de un array ("numeros")
   // Pasa el resultado a `cb`
   // No es necesario devolver nada
+  const suma = numeros.reduce((acumulador, numero) => acumulador + numero, 0); // utliza reduce para sumar los números
+  cb(suma); // Pasa el resultado al callback
 }
 
 function forEach(array, cb) {
   // Itera sobre la matriz "array" y pasa los valores al callback uno por uno
   // Pista: Estarás invocando a `cb` varias veces (una por cada valor en la matriz)
+  array.forEach(cb);  // Utiliza forEach para iterar sobre el array y llamar al callback con cada elemento
 }
 
 function map(array, cb) {
   // Crea un nuevo array
   // Itera sobre cada valor en "array", pásalo a `cb` y luego ubicar el valor devuelto por `cb` en un nuevo array
   // El nuevo array debe tener la misma longitud que el array del argumento
+  // Devuelve el nuevo array
+  return array.map(cb); // Utiliza map para crear un nuevo array aplicando el callback a cada elemento del array original
 }
 
 // No modificar nada debajo de esta línea
